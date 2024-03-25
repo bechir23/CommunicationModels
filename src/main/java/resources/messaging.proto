@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.messaging";
+option java_outer_classname = "Messages";
+option objc_class_prefix = "MSG";
+
+package messaging;
+
+service Messaging {
+    rpc SendMessage(MessageRequest) returns (MessageResponse);                                  
+    rpc SendReceiveMessage(stream MessageRequest) returns (stream MessageResponse);
+}
+
+message MessageRequest {
+    string message_id = 1;
+    string sender_id = 2;
+    string text = 3;
+}
+
+message MessageResponse {
+    string response_id = 1;
+    string status = 2;
+}
