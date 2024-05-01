@@ -1,0 +1,34 @@
+Threading Model and ITS LIMITS: 
+1-Socket
+Socket programming typically involves creating threads to handle concurrent connections and data transfer. 
+Each client connection is often managed by a dedicated thread on the server side, which can lead to scalability limitations under high loads.
+Sockets provide low-level control over network interactions but require manual thread management and lack built-in support for asynchronous communication.
+2-RMI
+RMI traditionally follows a synchronous model, involves blocking the calling thread until the remote method completes execution.
+RMI's synchronous model may lead to scalability issues under heavy loads.
+RMI supports asynchronous communication through extensions like AsyncRMI, which provides asynchronous versions of RMI methods.
+3-gRPC
+gRPC uses a non-blocking, asynchronous model for communication. It provides asynchronous stubs that allow clients to make RPC calls without blocking the main thread.
+gRPC's asynchronous model offers better scalability and performance by allowing concurrent communication over a single connection.
+Serialization/Unmarshaling:
+RMI: Serialization is automatic, and objects must implement java.io.Serializable.
+gRPC: Serialization is automatic and uses Protocol Buffers, with serialization handled by generated code.
+Sockets: Serialization is not automatic, and developers must handle serialization and deserialization manually using serialization frameworks or custom logic.
+Channels:
+1-RMI
+Communication channels are established using a registry or naming service .
+RMI registry provides a means to look up remote objects, it doesn't handle connection management or provide features like load balancing .
+2-Socket
+They require developers to implement connection management and error handling logic manually.
+3-gRPC(Managed Channel)
+Manages connections to remote servers, including connection lifecycle management, connection pooling, and load balancing.
+Provides methods to create gRPC stubs for invoking remote methods.
+Supports various configurations such as plaintext or encrypted connections (with TLS).
+Stream/Unary communication
+Unary communication is generally easier to implement across all three technologies due to its simplicity and straightforward request-response model.
+gRPC provides native support for streaming RPCs, making it easier to implement and use compared to RMI and sockets.
+Sockets offer the most flexibility but require more effort to implement streaming due to their low-level nature, while gRPC abstracts away much of the complexity associated with streaming RPCs.
+
+
+
+
