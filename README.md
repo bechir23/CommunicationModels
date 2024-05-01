@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 Messaging Application with gRPC
 =======
@@ -95,7 +95,4 @@ Run the provided client to connect to the server (ClientChat.java and ClientChat
 #Testing
 Once connected, you can send messages that will be broadcasted to all other clients connected to the server.
 
-<<<<<<< HEAD
-=======
- 
->>>>>>> 0c0bfb6053d3c8255a460da4ba00b94c88a52142
+
