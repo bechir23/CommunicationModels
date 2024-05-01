@@ -1,10 +1,5 @@
 
-
-Messaging Application with gRPC
-=======
-# gRPC-RMI-Sockets
  Messaging Application with gRPC
->>>>>>> 0c0bfb6053d3c8255a460da4ba00b94c88a52142
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This project demonstrates a simple messaging application using gRPC in Java. It consists of a server that handles sending and retrieving messages, and clients that can interact with the server to send and receive messages.
